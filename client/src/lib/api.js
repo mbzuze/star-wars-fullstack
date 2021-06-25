@@ -11,12 +11,12 @@ export async function getAllCharacters() {
   const transformedCharacters = [];
 
   for (const key in data) {
-    const quoteObj = {
+    const characterObj = {
       id: key,
       ...data[key],
     };
 
-    transformedCharacters.push(quoteObj);
+    transformedCharacters.push(characterObj);
   }
 
   return transformedCharacters;
@@ -38,10 +38,10 @@ export async function getSingleCharacter(userId) {
   return loadedCharacter;
 }
 
-export async function addCharacter(quoteData) {
+export async function addCharacter(characterData) {
   const response = await fetch(`${FIREBASE_DOMAIN}/characters.json`, {
     method: 'POST',
-    body: JSON.stringify(quoteData),
+    body: JSON.stringify(characterData),
     headers: {
       'Content-Type': 'application/json',
     },
@@ -49,7 +49,7 @@ export async function addCharacter(quoteData) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Could not create quote.');
+    throw new Error(data.message || 'Could not create character.');
   }
 
   return null;

@@ -6,6 +6,7 @@ import './App.css';
 import Characters from "./pages/AllCharacters";
 import CharacterDetail from "./pages/CharacterDetail";
 import Layout from './components/layout/Layout';
+import HomePage from './components/homepage.component';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
         <Route path='/' exact>
           <Redirect to="/characters"></Redirect>
         </Route>
+        <Route path='/homepage'>
+            <HomePage />
+          </Route>
         <Route path="/characters" exact>
           <Characters />
         </Route>
