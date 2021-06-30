@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+
 import './index.css';
 import App from './App';
+
+import store from './redux/store';
 
 import {
   ApolloClient,
@@ -21,7 +26,7 @@ const httpLink = createHttpLink({
 
 const client = new ApolloClient({
   link: httpLink,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache()  
 });
 
 console.log(client);
@@ -41,12 +46,14 @@ client.query({
 
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-  <React.StrictMode>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
-  </React.StrictMode>
-  </ApolloProvider>,
+  <Provider store={store}>
+    <ApolloProvider client={client}>
+    <React.StrictMode>
+      <BrowserRouter>
+      <App />
+      </BrowserRouter>
+    </React.StrictMode>
+    </ApolloProvider>
+  </Provider>,
   document.getElementById('root')
 );
