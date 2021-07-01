@@ -50,5 +50,6 @@
   "devDependencies": {
     "@types/react-router-dom": "^5.1.7",
     "@types/redux-logger": "^3.0.8"
-  }
+  },
+  "proxy": "http://localhost:9000"
 }

@@ -6,7 +6,7 @@ import './App.css';
 import Characters from "./pages/AllCharacters";
 import CharacterDetail from "./pages/CharacterDetail";
 import Layout from './components/layout/Layout';
-import HomePage from './pages/homepage/homepage.component';
+import { HomePage } from './pages/homepage';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           <Redirect to="/characters"></Redirect>
         </Route>
         <Route path='/homepage'>
-            <HomePage />
+            <HomePage title="Star Wars Listing" />
           </Route>
         <Route path="/characters" exact>
           <Characters />
