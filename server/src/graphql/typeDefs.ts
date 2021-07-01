@@ -35,6 +35,8 @@ type Planets {
 }
 
 type Query {
+    allPersons:[Person]!
+    person:[Person]!
     characters: [Person!]!
     character: [Person]
 }

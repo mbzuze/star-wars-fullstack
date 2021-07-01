@@ -1,24 +1,5 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
-const { isTypeSystemDefinitionNode } = require('graphql');
 
-// // A schema is a collection of type definitions (hence "typeDefs")
-// // that together define the "shape" of queries that are executed against
-// // your data.
-// const typeDefs = gql`
-//   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-
-//   # This "Person" type defines the queryable fields for every person in our data source.
-//   type Person {
-//     count: Int
-//   }
-
-//   # The "Query" type is special: it lists all of the available queries that
-//   # clients can execute, along with the return type for each. In this
-//   # case, the "people" query returns an array of zero or more Person(s) (defined above).
-//   type Query {
-//     people: [Person]
-//   }
-// `;
 class PersonAPI extends RESTDataSource {
   constructor() {
     super();
